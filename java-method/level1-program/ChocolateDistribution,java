@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class ChocolateDistribution {
+
+    // Method to find remainder and quotient
+    public static int[] findRemainderAndQuotient(int number, int divisor) {
+        int quotient = number / divisor;     // Chocolates each child gets
+        int remainder = number % divisor;    // Remaining chocolates
+        return new int[]{quotient, remainder};
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Get input from user
+        System.out.print("Enter total number of chocolates: ");
+        int numberOfChocolates = sc.nextInt();
+
+        System.out.print("Enter number of children: ");
+        int numberOfChildren = sc.nextInt();
+
+        // Check for zero children
+        if (numberOfChildren == 0) {
+            System.out.println("Error: Cannot divide among zero children!");
+            return;
+        }
+
+        // Calculate distribution
+        int[] result = findRemainderAndQuotient(numberOfChocolates, numberOfChildren);
+
+        // Display results
+        System.out.println("Chocolates each child gets: " + result[0]);
+        System.out.println("Remaining chocolates: " + result[1]);
+    }
+}
